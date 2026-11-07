@@ -1,0 +1,24 @@
+import {
+  "moonbitlang/moonback",
+  "moonbitlang/async",
+  "moonbitlang/core/bench",
+  "moonbit-community/opentelemetry/interface/trace",
+  "moonbit-community/opentelemetry/interface/context" @otelcontext,
+  "moonbit-community/opentelemetry/interface/common",
+  "moonbit-community/opentelemetry/interface/propagation",
+  "moonbit-community/opentelemetry/interface/metrics",
+}
+
+import {
+  "moonbitlang/async/http",
+  "moonbitlang/async/socket",
+  "moonbitlang/async/websocket",
+  "moonbitlang/core/debug",
+  "moonbit-community/opentelemetry/interface/metrics/noop" @metrics_noop,
+  "moonbit-community/opentelemetry/sdk/trace" @sdktrace,
+  "moonbit-community/opentelemetry/sdk/metrics" @sdkmetrics,
+} for "test"
+
+options(
+  backend: [ "native" ],
+)

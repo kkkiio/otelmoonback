@@ -1,0 +1,15 @@
+import {
+  "KKKIIO/otelmoonback",
+  "moonbitlang/moonback",
+  "moonbitlang/async",
+  "moonbitlang/async/http",
+  "moonbit-community/opentelemetry/sdk/trace" @sdktrace,
+  "moonbit-community/opentelemetry/sdk/metrics" @sdkmetrics,
+  "moonbitlang/core/debug",
+}
+
+pkgtype(kind: "executable")
+
+options(
+  backend: [ "native" ],
+)

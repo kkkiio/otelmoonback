@@ -1,0 +1,23 @@
+name: CI
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install MoonBit
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
+      - name: Check and test
+        run: |
+          moon version --all
+          moon update
+          moon check --target native
+          moon test --target native
+          moon run cmd/example --target native
+          moon info --target native
+          moon fmt --check
+          git diff --exit-code -- '*.mbti'

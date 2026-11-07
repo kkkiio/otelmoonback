@@ -1,0 +1,26 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "KKKIIO/otelmoonback"
+
+import {
+  "moonbit-community/opentelemetry/interface/context",
+  "moonbit-community/opentelemetry/interface/metrics",
+  "moonbit-community/opentelemetry/interface/trace",
+  "moonbitlang/moonback",
+}
+
+// Values
+pub fn get_context(@moonback.Request) -> @context.Context?
+
+pub fn get_span(@moonback.Request) -> @trace.Span?
+
+pub fn new_middleware(tracer~ : @trace.Tracer, meter~ : @metrics.Meter, scheme? : String, filter? : (@moonback.Request) -> Bool, span_name? : (String, String?) -> String) -> @moonback.Middleware
+
+pub fn set_route(@moonback.Request, String) -> Unit
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits
