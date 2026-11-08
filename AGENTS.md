@@ -61,3 +61,11 @@ moon fmt --check
 ```
 
 最终生成接口并格式化后，检查 pkg.generated.mbti 的变化符合预期；有新代码修改或失败修复时重新运行相应验证。集成测试监听 127.0.0.1 随机端口，每个场景设置超时。文档修改只需检查链接和示例同步；改动示例代码时实际运行示例。
+
+### Release
+
+仅根模块 `KKKIIO/otelmoonback` 发布到 Mooncakes；`examples/basic` 标记 `private = true`，不发布。
+
+1. bump `moon.mod` 的 `version`，跑完整验证（check / test / run examples/basic / info / fmt）。
+2. 给验证过的 commit 打 tag 并推送：`git tag v<version> && git push origin v<version>`。
+3. 在该 tag 上创建 **draft** GitHub release（`gh release create v<version> --draft`）并附 release notes，不发布；由维护者检查后点 Publish。`release.yml` 由 `release: published` 触发：校验 tag 与 `moon.mod` 版本一致，用 `moon view` 跳过已发布版本，未发布则 `moon publish`（需要仓库 secret `MOONCAKES_TOKEN`）。
