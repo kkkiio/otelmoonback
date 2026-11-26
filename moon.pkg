@@ -19,6 +19,4 @@ import {
   "moonbit-community/opentelemetry/sdk/metrics" @sdkmetrics,
 } for "test"
 
-options(
-  backend: [ "native" ],
-)
+supported_targets = "native"
